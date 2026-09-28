@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Fernaldy Habib Aydarus Sadewa</title>
+    <!-- Tailwind CSS CDN for utility styling alongside custom native CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090d16',
+                        cardBg: '#111827',
+                        neonBlue: '#3b82f6',
+                        neonCyan: '#06b6d4',
+                        accentDark: '#1f2937'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        
+        .glow-blue {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        .glow-blue-lg {
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.25);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 5px;
+            border: 2px solid #090d16;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 antialiased selection:bg-neonBlue selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-gray-800/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#beranda" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-white font-bold text-lg glow-blue group-hover:scale-105 transition-transform">
+                    F
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-wide text-white group-hover:text-neonBlue transition-colors">Fernaldy Habib</span>
+                    <span class="block text-xs text-blue-400 font-medium">Dewa Store Owner</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#beranda" class="text-gray-300 hover:text-neonBlue transition-colors">Beranda</a>
+                <a href="#tentang" class="text-gray-300 hover:text-neonBlue transition-colors">Tentang</a>
+                <a href="#hobi" class="text-gray-300 hover:text-neonBlue transition-colors">Hobi</a>
+                <a href="#toko" class="text-gray-300 hover:text-neonBlue transition-colors">Dewa Store</a>
+                <a href="#kontak" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold glow-blue hover:opacity-90 transition-all shadow-lg shadow-blue-500/20">Kontak</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg bg-gray-800/50 border border-gray-700">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-gray-800 px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#beranda" class="block text-gray-300 hover:text-neonBlue font-medium transition-colors mobile-link">Beranda</a>
+            <a href="#tentang" class="block text-gray-300 hover:text-neonBlue font-medium transition-colors mobile-link">Tentang</a>
+            <a href="#hobi" class="block text-gray-300 hover:text-neonBlue font-medium transition-colors mobile-link">Hobi</a>
+            <a href="#toko" class="block text-gray-300 hover:text-neonBlue font-medium transition-colors mobile-link">Dewa Store</a>
+            <a href="#kontak" class="block text-center px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold glow-blue mobile-link">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <!-- Background decorative gradients -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Hero Text -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-card border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-neonBlue animate-pulse"></span>
+                    <span>Selamat Datang di Portofolio Resmi</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Halo, Saya <br><span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent text-glow">Fernaldy Habib Aydarus Sadewa</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-lg:mx-auto font-light leading-relaxed">
+                    Siswa <strong class="text-white font-medium">SMA Negeri 2 Kota Mojokerto</strong>, penggiat ekstrakurikuler <strong class="text-blue-400 font-medium">Clutik</strong>, wirausahawan muda pemilik <strong class="text-cyan-400 font-medium">Dewa Store</strong>, serta aktif di dunia olahraga bersepeda & tenis.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#tentang" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-center glow-blue hover:scale-105 transition-all shadow-lg">
+                        Kenali Saya Lebih Dekat <i class="fa-solid fa-arrow-down ml-2"></i>
+                    </a>
+                    <a href="#toko" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-gray-200 hover:text-white font-semibold text-center border border-gray-700 hover:border-blue-500 transition-all">
+                        Kunjungi Dewa Store <i class="fa-solid fa-store ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Quick info badges -->
+                <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-gray-800 text-left">
+                    <div class="glass-card p-3 rounded-xl border border-gray-800">
+                        <div class="text-xs text-gray-400">Asal Kota</div>
+                        <div class="text-sm font-bold text-white flex items-center mt-1"><i class="fa-solid fa-location-dot text-neonBlue mr-2"></i> Mojokerto, Jatim</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl border border-gray-800">
+                        <div class="text-xs text-gray-400">Sekolah</div>
+                        <div class="text-sm font-bold text-white flex items-center mt-1"><i class="fa-solid fa-school text-neonBlue mr-2"></i> SMAN 2 Mojokerto</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl border border-gray-800 col-span-2 sm:col-span-1">
+                        <div class="text-xs text-gray-400">Bisnis</div>
+                        <div class="text-sm font-bold text-white flex items-center mt-1"><i class="fa-solid fa-bag-shopping text-cyan-400 mr-2"></i> Dewa Store</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image / Profile Avatar Area -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+                    <!-- Glowing rings backdrop -->
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-600 to-cyan-400 transform rotate-6 opacity-30 blur-xl"></div>
+                    <div class="absolute inset-0 rounded-3xl border-2 border-blue-500/50 transform -rotate-3 glow-blue-lg"></div>
+                    
+                    <!-- Profile Card Container -->
+                    <div class="relative w-full h-full rounded-3xl glass-card overflow-hidden border border-blue-500/40 flex flex-col items-center justify-center group p-4">
+                        <!-- Profile Photo Placeholder with Fallback -->
+                        <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-neonBlue shadow-2xl relative mb-4 bg-gray-900">
+                            <img src="foto pp.jpeg" 
+                                 alt="Fernaldy Habib Aydarus Sadewa" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                 onerror="this.src='https://placehold.co/400x400/111827/3b82f6?text=Fernaldy+Habib'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h3 class="text-lg font-bold text-white">Fernaldy Habib</h3>
+                            <p class="text-xs text-blue-400 font-medium">@fernaldy.habib • SMAN 2 Mojokerto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="py-24 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-darkBg to-[#0d1322]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Tentang Saya</h2>
+                <p class="text-gray-400">Mengenal lebih dekat latar belakang pendidikan, asal daerah, serta peran aktif dalam organisasi sekolah.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Asal Daerah -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Kota Mojokerto, Jatim</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Lahir dan dibesarkan di Kota Mojokerto, Jawa Timur. Bangga menjadi bagian dari kota bersejarah dengan semangat kebudayaan yang tinggi.
+                    </p>
+                </div>
+
+                <!-- Card 2: Sekolah & SMAN 2 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SMAN 2 Kota Mojokerto</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Saat ini menempuh pendidikan di Sekolah Menengah Atas Negeri 2 Kota Mojokerto, aktif dalam pengembangan akademik maupun non-akademik.
+                    </p>
+                </div>
+
+                <!-- Card 3: Ekstrakurikuler Clutik -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 relative group">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Ekstrakurikuler Clutik</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Menjabat dan memegang peran penting di dalam ekstrakurikuler <strong class="text-white">Clutik</strong> SMAN 2 Kota Mojokerto, melatih kepemimpinan & kreativitas tim.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobi" class="py-24 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Hobi & Aktivitas</h2>
+                <p class="text-gray-400">Kegiatan positif yang ditekuni di waktu luang untuk menjaga kebugaran fisik dan ketajaman mental.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Hobby 1: Bersepeda -->
+                <div class="glass-card rounded-3xl overflow-hidden border border-gray-800 group relative">
+                    <div class="h-48 bg-gradient-to-r from-blue-900/60 to-gray-900 relative flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+                        <div class="w-20 h-20 rounded-2xl bg-blue-600/30 border border-blue-400/50 flex items-center justify-center text-blue-400 text-4xl group-hover:scale-110 transition-transform glow-blue">
+                            <i class="fa-solid fa-person-biking"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold text-white">Bersepeda (Cycling)</h3>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30">Kebugaran</span>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Menjelajahi jalur perkotaan maupun pedesaan di sekitar Mojokerto dengan sepeda. Bersepeda melatih ketahanan fisik, konsentrasi, serta menyegarkan pikiran setelah penat belajar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hobby 2: Tenis -->
+                <div class="glass-card rounded-3xl overflow-hidden border border-gray-800 group relative">
+                    <div class="h-48 bg-gradient-to-r from-cyan-900/60 to-gray-900 relative flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+                        <div class="w-20 h-20 rounded-2xl bg-cyan-500/30 border border-cyan-400/50 flex items-center justify-center text-cyan-400 text-4xl group-hover:scale-110 transition-transform glow-blue">
+                            <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                        </div>
+                    </div>
+                    <div class="p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-2xl font-bold text-white">Tenis (Tennis)</h3>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Olahraga Raket</span>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Olahraga yang melatih kecepatan reaksi, ketepatan, dan strategi. Rutin bermain tenis membantu menjaga kebugaran tubuh serta membangun sportivitas tinggi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business / Dewa Store Section -->
+    <section id="toko" class="py-24 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-[#0d1322] to-darkBg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">
+                    <i class="fa-solid fa-store mr-1"></i> Bisnis Pribadi
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Dewa Store</h2>
+                <p class="text-gray-400">Toko pilihan terpercaya yang didirikan dan dikelola langsung oleh Fernaldy Habib.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Showcase Card -->
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 sm:p-12 border border-blue-500/40 relative overflow-hidden glow-blue-lg">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-48 h-48 sm:w-60 sm:h-60 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 p-1 flex items-center justify-center glow-blue">
+                            <div class="w-full h-full rounded-2xl bg-darkBg flex flex-col items-center justify-center p-6 text-center">
+                                <i class="fa-solid fa-bag-shopping text-5xl text-cyan-400 mb-4 animate-bounce"></i>
+                                <h3 class="text-xl font-extrabold text-white tracking-wider">DEWA STORE</h3>
+                                <p class="text-xs text-gray-400 mt-1">Official Store & Business</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">Selamat Datang di Dewa Store</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                            <strong class="text-white">Dewa Store</strong> adalah lini bisnis mandiri yang dikembangkan dengan komitmen tinggi untuk menyediakan produk dan layanan berkualitas bagi para pelanggan. Dibangun dari semangat wirausaha muda di Kota Mojokerto.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                                <div class="text-cyan-400 font-bold text-lg"><i class="fa-solid fa-shield-halved mr-2"></i>Terpercaya</div>
+                                <p class="text-xs text-gray-400 mt-1">Pelayanan cepat & amanah</p>
+                            </div>
+                            <div class="bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                                <div class="text-blue-400 font-bold text-lg"><i class="fa-solid fa-tags mr-2"></i>Kualitas</div>
+                                <p class="text-xs text-gray-400 mt-1">Produk pilihan terbaik</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="#kontak" class="inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm glow-blue hover:scale-105 transition-all">
+                                Hubungi Pemilik / Toko <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-24 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Hubungi Saya</h2>
+                <p class="text-gray-400">Tertarik berkolaborasi, mendiskusikan ekstrakurikuler Clutik, atau memesan di Dewa Store? Mari terhubung.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-400">Lokasi Asal</h4>
+                                <p class="text-white font-medium mt-1">Kota Mojokerto, Jawa Timur</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 flex-shrink-0">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-400">Sekolah & Organisasi</h4>
+                                <p class="text-white font-medium mt-1">SMA Negeri 2 Kota Mojokerto (Clutik)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0">
+                                <i class="fa-solid fa-store"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-400">Bisnis</h4>
+                                <p class="text-white font-medium mt-1">Dewa Store</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links & Quick Form Simulator -->
+                    <div class="flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-bold text-white">Media Sosial & Koneksi</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://instagram.com" target="_blank" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 transition-all text-xl">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://wa.me/+628816374975" target="_blank" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 transition-all text-xl">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                                <a href="mailto:dewaaldy1808@gmail.com" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 transition-all text-xl">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-gray-900/80 border border-gray-800 text-xs text-gray-400">
+                            <i class="fa-solid fa-circle-info text-neonBlue mr-1"></i> Hubungi melalui sosial media atau WhatsApp resmi untuk pertanyaan seputar Dewa Store maupun kegiatan SMAN 2 Kota Mojokerto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-[#070a12] py-8 px-4 text-center text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center text-white font-bold text-xs">
+                    F
+                </div>
+                <span class="text-gray-300 font-semibold">Fernaldy Habib Aydarus Sadewa</span>
+            </div>
+            <p>&copy; 2026 Fernaldy Habib Aydarus Sadewa • SMAN 2 Kota Mojokerto & Dewa Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Interactivity -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Toggle mobile menu
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide mobile menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar background blur enhancement on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg', 'bg-darkBg/90');
+            } else {
+                navbar.classList.remove('shadow-lg', 'bg-darkBg/90');
+            }
+        });
+    </script>
+</body>
+</html>
